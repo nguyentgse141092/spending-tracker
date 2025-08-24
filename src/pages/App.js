@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Total from "./Total";
+
 
 function formatDate(dateString) {
   const d = new Date(dateString);
@@ -92,6 +95,14 @@ function Spending() {
 
       {/* Daily Total */}
       <h3 style={{ marginTop: "15px" }}>Total for {formatDate(selectedDate)}: ${dailyTotal}</h3>
+      <Router>
+        <nav style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
+          <Link to="/total">Total</Link>
+        </nav>
+        <Routes>          
+          <Route path="/total" element={<Total />} />
+        </Routes>
+      </Router>
 
       {/* Table */}
       <table style={{ marginTop: "10px", width: "100%", borderCollapse: "collapse" }}>
