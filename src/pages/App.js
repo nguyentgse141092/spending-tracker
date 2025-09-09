@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Total from "./Total";
+import Accounting from "./accounting";
 
 
 function formatDate(dateString) {
@@ -68,13 +69,13 @@ function Spending() {
         value={itemName}
         onChange={(e) => setItemName(e.target.value)}
         padding="10px"
+        style={{ marginLeft: "10px" }}
       />
       <input
         type="number"
         placeholder="Price"
         value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        
+        onChange={(e) => setPrice(e.target.value)}        
         
       />
       <button onClick={addItem} style={{ marginLeft: "10px" }}>Add</button>
@@ -98,9 +99,11 @@ function Spending() {
       <Router>
         <nav style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
           <Link to="/total">Total</Link>
+           <Link to="/accounting">Accounting</Link>
         </nav>
         <Routes>          
           <Route path="/total" element={<Total />} />
+          <Route path="/accounting" element={<Accounting />} />
         </Routes>
       </Router>
 
